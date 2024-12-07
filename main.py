@@ -6,6 +6,24 @@ from pandasai.llm.local_llm import LocalLLM
 from scrape import (scrape_website, split_dom_content, clean_body_content, extract_body_content)
 from parse import parse_with_ollama
 
+def login():
+    st.sidebar.title("Login")
+    password = st.sidebar.text_input("Enter the password", type="password")
+    if password == "123":
+        st.sidebar.success("Access granted")
+        return True
+    else:
+        st.sidebar.error("Incorrect password")
+        return False
+
+# Check for authentication
+if login():
+    # Main application code goes here
+    st.title("Welcome to Your Secure App")
+    st.write("This is the main content of your app.")
+else:
+    st.warning("Please enter the correct password to access the app.")
+
 st.sidebar.markdown("<h1 style='text-align: center; color: white;'>Menu</h1>", unsafe_allow_html=True)
 
 # Sidebar
