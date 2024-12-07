@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit_extras.colored_header import colored_header
 from pandasai import SmartDataframe
 from pandasai.llm.local_llm import LocalLLM
@@ -14,7 +13,6 @@ option = st.sidebar.selectbox("Select a dashboard option:", ['Data All in One', 
 
 if option == 'Data All in One':
     st.markdown("<h1 style='text-align: center; color: white;'>📊 Data All in One </h1>", unsafe_allow_html=True)
-    add_vertical_space(5)
 
     #Web Scaper
     url = st.text_input("🌐 Enter a Website URL:")
@@ -44,7 +42,6 @@ if option == 'Data All in One':
                     st.write(parsed_result)
                     st.download_button('Download', parsed_result)
 
-    add_vertical_space(5)
 
     #CSV File Uploader With Ollama Model
     model = LocalLLM(
@@ -91,8 +88,6 @@ if option == 'Data All in One':
                         
 
     
-    add_vertical_space(10)
-    
 elif option == 'Details':
         colored_header(
         label="Details",
@@ -120,7 +115,6 @@ else:
         description="",
         color_name="blue-70",
     )
-    add_vertical_space(2)
     linkedin_url = "https://www.linkedin.com/in/vir-chuy-darm-jr/"
     linkedin_logo = "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
 
